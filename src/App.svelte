@@ -36,7 +36,6 @@
 	}
 
 	h1 {
-		color: #FF7663;
 		text-transform: uppercase;
 		font-size: 6em;
 		font-weight: 100;
@@ -47,6 +46,20 @@
 		font-weight: lighter;
 		font-size: 3.3em;
 		margin-top: 0;
+	}
+
+	button {
+		font-size: 1.5em;
+		border-color: #FFF;
+		border-radius: 0;
+		background-color: #FFF;
+		transition: 200ms ease-in;
+	}
+
+	button:hover {
+		background-position-x: 0;
+		color: #34B374;
+		border-color: #34B374;
 	}
 
 	@media (min-width: 640px) {
