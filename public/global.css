@@ -14,17 +14,17 @@ body {
 }
 
 a {
-    color: #34B374;
+    color: #B66D63;
     text-decoration: none;
 }
 
 a:hover {
-    color: #7DFFBF;
+    color: #FF7663;
     text-decoration: none;
 }
 
 a:visited {
-    color: #63FFB3;
+    color: #FF7663;
     text-decoration: none;
 }
 

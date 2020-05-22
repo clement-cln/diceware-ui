@@ -27,7 +27,7 @@
 <style>
     .dices-wrapper {
         margin: 4em auto;
-        max-width: 40%;
+        max-width: 50%;
     }
 
     .dices-label {
@@ -46,11 +46,18 @@
     .dices-label:active {
         background-color: #63FFB3;
     }
+
+    .lock {
+        margin-left: 0.5em;
+        float:left;
+        height: 10%;
+    }
 </style>
 
 {#if visible}
     <div class="dices-wrapper" transition:slide>
         <label class="dices-label" on:click={copyToClipboard}>
+            <img class="lock" src="./assets/lock.png" alt="lock">
             {#if wordsJson !== undefined}
                 {#each rolls as roll}
                     <span>{wordsJson[`${roll}`]} </span>

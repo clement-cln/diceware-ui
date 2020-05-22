@@ -2,6 +2,8 @@
 	import { onMount, onDestroy } from 'svelte'
 	import { dicesRoll } from './dicesRoll'
 	import Dices from './Dices.svelte'
+	import Info from './Info.svelte'
+	import Disclaimer from './Disclaimer.svelte'
 
 	let rolls = [];
 
@@ -28,6 +30,8 @@
 		</div>
 	</div>
 
+	<Info></Info>
+	<Disclaimer></Disclaimer>
 	<Dices {rolls} {visible}></Dices>
 	
 	<div>
@@ -35,6 +39,10 @@
 	</div>
 </main>
 
+<footer>
+	<p><a href="https://github.com/Deweytle/diceware-ui" target="_blank"><img src="./assets/github.png" alt="github"></a></p>
+	<p>lock design by Pablo Santos on <a href="https://thenounproject.com/" target="_blank">the noun project</a></p>
+</footer>
 
 <style>
 	main {
@@ -77,7 +85,6 @@
 
 	.logo {
 		display: inline;
-		
 		margin-right: 0%;
 		max-height: 15vh;
 	}
@@ -96,7 +103,7 @@
 	}
 
 	button {
-		margin: 0;
+		margin: 0 0 3em 0;
 		font-size: 1.5em;
 		border-color: #FFF;
 		border-radius: 0;
@@ -116,4 +123,13 @@
 		border-color: #63FFB3;
 	}
 
+	footer {
+		color:lightgrey;
+		text-align: center;
+		font-size: 0.8em;
+	}
+
+	footer img {
+		height: 30px;
+	}
 </style>
