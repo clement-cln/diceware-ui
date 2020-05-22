@@ -1,4 +1,10 @@
+<p align="center">
+    <img src="https://raw.githubusercontent.com/Deweytle/diceware-ui/master/public/assets/dice-logo.png" alt="dice logo">
+</p>
+
 # Diceware password UI
+
+[![Svelte v3](https://img.shields.io/badge/svelte-v3-orange.svg)](https://svelte.dev)
 
 This project aims to provide a password generation UI that complies with [EFF](https://www.eff.org/dice) diceware principle
 

@@ -1,6 +1,7 @@
 <script>
     import { onMount } from 'svelte'
     import { slide } from 'svelte/transition'
+    import { NotificationDisplay, notifier } from '@beyonk/svelte-notifications'
 
     export let rolls;
     export let visible;
@@ -8,6 +9,10 @@
     let wordsJson = undefined;
     let password = [];
     let copyPassword;
+
+    let themes = {
+        success: '#34B374'
+    }
 
     onMount(async () => {
         const res = await fetch('./assets/eff_large_wordlist.json');
@@ -20,6 +25,7 @@
             copyPassword += wordsJson[roll];
         });
         navigator.clipboard.writeText(copyPassword);
+        notifier.success('Password copied to clipboard !');
     }
 
 </script>
@@ -54,6 +60,7 @@
     }
 </style>
 
+<NotificationDisplay {themes}/>
 {#if visible}
     <div class="dices-wrapper" transition:slide>
         <label class="dices-label" on:click={copyToClipboard}>
