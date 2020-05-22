@@ -3,6 +3,7 @@
     import { slide } from 'svelte/transition'
 
     export let rolls;
+    export let visible;
 
     let wordsJson = undefined;
     let password = [];
@@ -37,17 +38,26 @@
         color: #fff;
         cursor: pointer;
     }
+
+    .dices-label:hover {
+        background-color: #7DFFBF;
+    }
+
+    .dices-label:active {
+        background-color: #63FFB3;
+    }
 </style>
 
-<div class="dices-wrapper" transition:slide>
-    <label class="dices-label" on:click={copyToClipboard}>
-        {#if wordsJson !== undefined}
-            {#each rolls as roll}
-                <span>{wordsJson[`${roll}`]} </span>
-            {/each}
-        {:else}
-            <p>password loading</p>
-        {/if}
-    </label>
-</div>
-
+{#if visible}
+    <div class="dices-wrapper" transition:slide>
+        <label class="dices-label" on:click={copyToClipboard}>
+            {#if wordsJson !== undefined}
+                {#each rolls as roll}
+                    <span>{wordsJson[`${roll}`]} </span>
+                {/each}
+            {:else}
+                <p>password loading</p>
+            {/if}
+        </label>
+    </div>
+{/if}

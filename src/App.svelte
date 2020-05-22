@@ -17,43 +17,91 @@
 </script>
 
 <main>
-	<h1>Diceware</h1>
-	<h2>password generator</h2>
+	<div class="head-wrapper">
+		<div class="left">
+			<span class="helper"></span>
+			<img class="logo" src="./assets/dice-logo.png" alt="diceware logo">
+		</div>
+		<div class="right">
+			<h1>Diceware</h1>
+			<h2>password generator</h2>
+		</div>
+	</div>
 
-	{#if visible}
-		<Dices {rolls}></Dices>
-	{/if}
-	<button on:click={handleRoll}>{visible ? 're-' : '' }roll the dices</button>
+	<Dices {rolls} {visible}></Dices>
+	
+	<div>
+		<button on:click={handleRoll}>{visible ? 're-' : '' }roll the dices</button>
+	</div>
 </main>
 
 
 <style>
 	main {
 		text-align: center;
-		padding: 1em;
-		max-width: 240px;
 		margin: 0;
+	}
+
+	.head-wrapper {
+		height: 30%;
+	}
+
+	.left {
+		display: inline-block;
+		text-align: right;
+	}
+
+	.right {
+		display: inline-block;
+		padding-left: 1em;
+		text-align: left;
+	}
+
+	@media only screen and (max-width: 1026px) {
+    	.left {
+        	display: none;
+    	}
+
+		.right {
+			display: inline;
+			text-align: center;
+		}
+	}
+
+
+	.helper {
+		display: inline-block;
+    	height: 100%;
+    	vertical-align: middle;
+	}
+
+	.logo {
+		display: inline;
+		
+		margin-right: 0%;
+		max-height: 15vh;
 	}
 
 	h1 {
 		text-transform: uppercase;
-		font-size: 6em;
+		font-size: 9vh;
 		font-weight: 100;
 		margin: 0.5em 0 0 0;
 	}
 
 	h2 {
 		font-weight: lighter;
-		font-size: 3.3em;
+		font-size: 6vh;
 		margin-top: 0;
 	}
 
 	button {
+		margin: 0;
 		font-size: 1.5em;
 		border-color: #FFF;
 		border-radius: 0;
 		background-color: #FFF;
-		transition: 200ms ease-in;
+		transition: 100ms ease-in;
 	}
 
 	button:hover {
@@ -62,9 +110,10 @@
 		border-color: #34B374;
 	}
 
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
+	button:active {
+		background-color: #FFF;
+		color: #63FFB3;
+		border-color: #63FFB3;
 	}
+
 </style>
