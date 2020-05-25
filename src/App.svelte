@@ -1,20 +1,8 @@
 <script>
 	import { onMount, onDestroy } from 'svelte'
-	import { dicesRoll } from './dicesRoll'
 	import Dices from './Dices.svelte'
 	import Info from './Info.svelte'
 	import Disclaimer from './Disclaimer.svelte'
-
-	let rolls = [];
-
-	function handleRoll() {
-		rolls = [];
-		for(let i = 0; i < 5; i++){
-			rolls = [...rolls, dicesRoll()];
-		}
-	}
-
-	$: visible = rolls.length === 0 ? false : true;
 
 </script>
 
@@ -32,11 +20,8 @@
 
 	<Info></Info>
 	<Disclaimer></Disclaimer>
-	<Dices {rolls} {visible}></Dices>
+	<Dices></Dices>
 	
-	<div>
-		<button on:click={handleRoll}>{visible ? 're-' : '' }roll the dices</button>
-	</div>
 </main>
 
 <footer>
@@ -47,6 +32,7 @@
 <style>
 	main {
 		text-align: center;
+  		text-justify: inter-word;
 		margin: 0;
 	}
 
@@ -74,6 +60,16 @@
 			display: inline;
 			text-align: center;
 		}
+
+		main {
+			text-align: justify;
+        	text-justify: inter-word;
+		}
+
+		div {
+			max-width: 80%;
+			margin: auto;
+		}
 	}
 
 
@@ -100,27 +96,6 @@
 		font-weight: lighter;
 		font-size: 6vh;
 		margin-top: 0;
-	}
-
-	button {
-		margin: 0 0 3em 0;
-		font-size: 1.5em;
-		border-color: #FFF;
-		border-radius: 0;
-		background-color: #FFF;
-		transition: 100ms ease-in;
-	}
-
-	button:hover {
-		background-position-x: 0;
-		color: #34B374;
-		border-color: #34B374;
-	}
-
-	button:active {
-		background-color: #FFF;
-		color: #63FFB3;
-		border-color: #63FFB3;
 	}
 
 	footer {

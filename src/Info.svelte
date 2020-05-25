@@ -1,4 +1,7 @@
 <style>
+    .info-wrapper{
+        margin: 2em;
+    }
 </style>
 
 <div class="info-wrapper">

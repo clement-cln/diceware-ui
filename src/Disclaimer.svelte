@@ -6,11 +6,12 @@
     #warning {
         font-size: 1.2em;
         color: #FF7663;
-        display: inline-block;
+        display: inline;
         margin-left: 1em;
     }
 
     #circle-warning {
+        text-align: center;
         color:#fff;
         font-size: 1.5em;
         height: 30px;
