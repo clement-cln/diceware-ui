@@ -1,0 +1,10 @@
+{
+    "disclaimer": "Aucun log n'est conservé sur ce site et le code source est disponible sur github ci-dessous",
+    "error": "Erreur lors de la copie 😔",
+    "info_start": "Ce site fourni un outil pour générer des mots de passes selon le principe Diceware de l'organisme",
+    "info_end": " ",
+    "info_warning": "La force du mot de passe est aussi bonne que la confiance que vous accordez au site qui le génère",
+    "lock_credits": "design du cadenas par Pablo Santos pour",
+    "roll_dices": "lancer les dés",
+    "success": "Mot de passe copié 😊"
+}

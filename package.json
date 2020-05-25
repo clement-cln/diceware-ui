@@ -1,5 +1,6 @@
 {
     "name": "svelte-app",
+    "repository": "https://github.com/Deweytle/diceware-ui",
     "version": "1.0.0",
     "scripts": {
         "build": "rollup -c",
@@ -17,6 +18,8 @@
         "svelte": "^3.0.0"
     },
     "dependencies": {
-        "sirv-cli": "^0.4.4"
+        "@rollup/plugin-json": "^4.0.3",
+        "sirv-cli": "^0.4.4",
+        "svelte-i18n": "^3.0.3"
     }
 }

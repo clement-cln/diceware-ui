@@ -3,7 +3,22 @@
 	import Dices from './Dices.svelte'
 	import Info from './Info.svelte'
 	import Disclaimer from './Disclaimer.svelte'
+	import Footer from './Footer.svelte'
+	import Language from './Language.svelte'
+	import { register, init, getLocaleFromNavigator, isLoading, locale } from 'svelte-i18n'
 
+	register('en-US', () => import('./i18n/en-US.json'));
+	register('fr-FR', () => import('./i18n/fr-FR.json'))
+
+	onMount(() => {
+		//Hacky way to set initial locale on mobile
+		locale.set('en-US');
+	})
+	
+	init({
+  		fallbackLocale: 'en-US',
+  		initialLocale: getLocaleFromNavigator(),
+	});
 </script>
 
 <main>
@@ -18,16 +33,17 @@
 		</div>
 	</div>
 
-	<Info></Info>
-	<Disclaimer></Disclaimer>
-	<Dices></Dices>
+	{#if $isLoading}
+		<p>...language loading</p>
+	{:else}
+		<Language></Language>
+		<Info></Info>
+		<Disclaimer></Disclaimer>
+		<Dices></Dices>
+		<Footer></Footer>
+	{/if}
 	
 </main>
-
-<footer>
-	<p><a href="https://github.com/Deweytle/diceware-ui" target="_blank"><img src="./assets/github.png" alt="github"></a></p>
-	<p>lock design by Pablo Santos on <a href="https://thenounproject.com/" target="_blank">the noun project</a></p>
-</footer>
 
 <style>
 	main {
@@ -96,15 +112,5 @@
 		font-weight: lighter;
 		font-size: 6vh;
 		margin-top: 0;
-	}
-
-	footer {
-		color:lightgrey;
-		text-align: center;
-		font-size: 0.8em;
-	}
-
-	footer img {
-		height: 30px;
 	}
 </style>

@@ -1,3 +1,11 @@
+<script>
+    import { _ } from 'svelte-i18n'
+</script>
+
+<div class="text-wrapper">
+    <div id="circle-warning">!</div><div id="warning">{$_('disclaimer')}</div>
+</div>
+
 <style>
     .text-wrapper {
         margin: 2em;
@@ -21,7 +29,3 @@
         display: inline-block;
     }
 </style>
-
-<div class="text-wrapper">
-    <div id="circle-warning">!</div><div id="warning"> No logs are kept on this site and you can check the source code on github down below</div>
-</div>

@@ -1,0 +1,10 @@
+{
+    "disclaimer": "No logs are kept on this site and you can check the source code on github down below",
+    "error": "Error copying to clipboard 😔",
+    "info_start": "This website provides a tool that complies with",
+    "info_end": "dice pass-phrases generation principle",
+    "info_warning": "The password strength is as good as the trust you put in the site that generates it",
+    "lock_credits": "lock design by Pablo Santos on",
+    "roll_dices": "roll the dices",
+    "success": "Password copied to clipboard 😊"
+}

@@ -1,14 +1,21 @@
 <script>
-    import { onMount } from 'svelte';
+    import { onMount, onDestroy } from 'svelte';
     import { slide } from 'svelte/transition';
     import { NotificationDisplay, notifier } from '@beyonk/svelte-notifications';
     import { visible } from './stores.js';
     import { dicesRoll } from './dicesRoll';
+    import { locale, _ } from 'svelte-i18n';
 
     let wordsJson = undefined;
     let password = [];
     let copyPassword;
     let rolls = [];
+    let localeWordlist;
+
+    const localeSub = locale.subscribe(async (value) => {
+        localeWordlist = value.substring(0,2);
+        await loadWordList();
+    });
 
 	function handleRoll() {
 		rolls = [];
@@ -22,10 +29,16 @@
         warning: '#FF7663'
     }
 
-    onMount(async () => {
-        const res = await fetch('./assets/eff_large_wordlist.json');
+    async function loadWordList() {
+        const res = await fetch(`./assets/wordlists/wordlist-${localeWordlist}.json`);
         wordsJson = await res.json();
+    }
+
+    onMount(async () => {
+        await loadWordList();
     })
+
+    onDestroy(localeSub);
 
     function copyToClipboard() {
         copyPassword='';
@@ -34,10 +47,10 @@
                 copyPassword += wordsJson[roll];
             });
             navigator.clipboard.writeText(copyPassword);
-            notifier.success('Password copied to clipboard 😊');
+            notifier.success($_('success'));
         }
         catch {
-            notifier.warning('Error copying to clipboard 😔');
+            notifier.warning($_('error'));
         }
     }
 
@@ -62,7 +75,7 @@
 {/if}
 
 <div id="button-wrapper">
-    <button on:click={handleRoll}>{$visible ? 're-' : '' }roll the dices</button>
+    <button on:click={handleRoll}>{$visible ? 're-' : '' }{$_('roll_dices')}</button>
 </div>
 
 
@@ -108,7 +121,6 @@
 	}
 
 	button:hover {
-		background-position-x: 0;
 		color: #34B374;
 		border-color: #34B374;
 	}
