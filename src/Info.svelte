@@ -9,6 +9,6 @@
 
 <style>
     .info-wrapper{
-        margin: 2em;
+        margin: 1em;
     }
 </style>

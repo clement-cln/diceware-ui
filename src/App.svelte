@@ -8,7 +8,8 @@
 	import { register, init, getLocaleFromNavigator, isLoading, locale } from 'svelte-i18n'
 
 	register('en-US', () => import('./i18n/en-US.json'));
-	register('fr-FR', () => import('./i18n/fr-FR.json'))
+	register('fr-FR', () => import('./i18n/fr-FR.json'));
+	register('fr', () => import('./i18n/fr-FR.json'));
 
 	onMount(() => {
 		//Hacky way to set initial locale on mobile
@@ -69,12 +70,14 @@
 
 	@media only screen and (max-width: 1026px) {
     	.left {
-        	display: none;
+			display: block;
+			text-align: center;
+			margin-bottom: 1em;
+			margin-top: 1em;
     	}
 
 		.right {
-			display: inline;
-			text-align: center;
+			display: none;
 		}
 
 		main {

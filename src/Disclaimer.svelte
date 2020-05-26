@@ -8,7 +8,7 @@
 
 <style>
     .text-wrapper {
-        margin: 2em;
+        margin: 1em;
     }
 
     #warning {
