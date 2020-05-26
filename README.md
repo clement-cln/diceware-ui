@@ -4,7 +4,9 @@
 
 # Diceware password UI
 
-[![Svelte v3](https://img.shields.io/badge/svelte-v3-orange.svg)](https://svelte.dev)
+[![Svelte v3](https://img.shields.io/badge/svelte-v3?logo=svelte&style=flat&color=FF3E00&logoColor=white)](https://svelte.dev) [![Vercel](https://img.shields.io/badge/vercel-v1?style=flat&color=black&logoColor=white)](https://dicepassword.now.sh/)
+
+
 
 This project aims to provide a password generation UI that complies with [EFF](https://www.eff.org/dice) diceware principle
 
