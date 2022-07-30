@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import { onMount, onDestroy } from 'svelte';
     import { slide } from 'svelte/transition';
     import { NotificationDisplay, notifier } from '@beyonk/svelte-notifications';
@@ -61,7 +61,7 @@
 <NotificationDisplay {themes}/>
 {#if $visible}
     <div class="dices-wrapper" transition:slide>
-        <label class="dices-label" on:click={copyToClipboard}>
+        <label for="dices-label" on:click={copyToClipboard}>
             <img class="lock" src="./assets/lock.png" alt="lock">
             {#if wordsJson !== undefined}
                 {#each rolls as roll}
@@ -88,7 +88,7 @@
         max-width: 50%;
     }
 
-    .dices-label {
+    label[for="dices-label"] {
         padding: 0.5em;
         border-radius: 0.3em;
         font-size: 1.5em;
@@ -97,11 +97,11 @@
         cursor: pointer;
     }
 
-    .dices-label:hover {
+    label[for="dices-label"]:hover {
         background-color: #7DFFBF;
     }
 
-    .dices-label:active {
+    label[for="dices-label"]:active {
         background-color: #63FFB3;
     }
 
