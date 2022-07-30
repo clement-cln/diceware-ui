@@ -21,9 +21,10 @@ export default {
             dev: !production,
             // we'll extract any component CSS out into
             // a separate file - better for performance
-            css: css => {
-                css.write('public/build/main.css');
-            }
+            // css: css => {
+            //     css.write('public/build/main.css');
+            // }
+            emitCss: false
         }),
 
         // If you have external dependencies installed from
