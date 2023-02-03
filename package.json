@@ -3,8 +3,8 @@
     "repository": "https://github.com/Deweytle/diceware-ui",
     "version": "1.0.0",
     "scripts": {
-        "build": "rollup -c",
-        "dev": "rollup -c -w",
+        "build": "rollup -c --context window",
+        "dev": "rollup -c -w --context window",
         "start": "sirv public --host 0.0.0.0"
     },
     "devDependencies": {
